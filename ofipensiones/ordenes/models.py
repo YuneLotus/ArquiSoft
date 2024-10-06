@@ -25,7 +25,7 @@ class Factura(models.Model):
     orden = models.ForeignKey(Orden, on_delete=models.CASCADE)  # Invoice is linked to an order
     fecha_pago = models.DateTimeField()  # Date the payment was made
     monto_pagado = models.DecimalField(max_digits=10, decimal_places=2)  # Amount paid
-    metodo_pago = models.CharField(max_length=50)  # Payment method (e.g., credit card, bank transfer)
+    metodo_pago = models.ForeignKey('MetodoPago', on_delete=models.SET_NULL, null=True, blank=True)  # Payment method (e.g., credit card, bank transfer)
 
     def __str__(self):
         return f"Factura {self.id} - Orden {self.orden.id}"
