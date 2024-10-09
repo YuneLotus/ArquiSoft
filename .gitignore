@@ -5,6 +5,10 @@ local_settings.py
 __pycache__/
 *.pyc
 
+# Base de datos
+db.sqlite3
+db.sqlite3-journal
+
 # Archivos de medios
 media/
 
