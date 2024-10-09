@@ -1,0 +1,33 @@
+# Archivos de configuración locales
+local_settings.py
+
+# Base de datos
+db.sqlite3
+db.sqlite3-journal
+
+# Archivos generados
+__pycache__/
+*.pyc
+
+# Archivos de medios
+media/
+
+# Archivos estáticos
+staticfiles/
+
+# Archivos de logs
+*.log
+
+# Configuraciones del IDE
+.idea/
+.vscode/
+
+# Directorios de pruebas y cobertura
+.tox/
+.nox/
+.coverage
+htmlcov/
+
+# Otros archivos temporales
+*.pot
+*.egg-info/
