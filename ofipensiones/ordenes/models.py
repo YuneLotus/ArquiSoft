@@ -6,7 +6,6 @@ from cronogramas.models import PlantillaCronograma  # Import PlantillaCronograma
 
 # Orden (Order) Model
 class Orden(models.Model):
-    id = models.AutoField(primary_key=True)  # Auto-incrementing primary key for orders
     estudiante = models.ForeignKey(Estudiante, on_delete=models.CASCADE)  # Order is linked to a student
     fecha_creacion = models.DateTimeField(auto_now_add=True)  # Date the order was created
     fecha_vencimiento = models.DateTimeField()  # Due date for the payment
@@ -20,7 +19,6 @@ class Orden(models.Model):
 
 # Factura (Invoice) Model
 class Factura(models.Model):
-    id = models.AutoField(primary_key=True)
     acudiente = models.ForeignKey(Acudiente, on_delete=models.CASCADE)  # Invoice is linked to an guardian
     orden = models.ForeignKey(Orden, on_delete=models.CASCADE)  # Invoice is linked to an order
     fecha_pago = models.DateTimeField()  # Date the payment was made
@@ -32,7 +30,6 @@ class Factura(models.Model):
 
 # MetodoPago (Payment Method) Model
 class MetodoPago(models.Model):
-    id = models.AutoField(primary_key=True)
     colegio = models.ForeignKey(Colegio, on_delete=models.CASCADE)  # Payment method is linked to a school
     nombre = models.CharField(max_length=50)  # Name of the payment method (e.g., "Credit Card")
     descripcion = models.TextField(null=True, blank=True)
@@ -42,7 +39,6 @@ class MetodoPago(models.Model):
 
 # Descuento (Discount) Model
 class Descuento(models.Model):
-    id = models.AutoField(primary_key=True)
     factura = models.ForeignKey(Factura, on_delete=models.CASCADE)  # Discount is linked to an invoice
     descripcion = models.CharField(max_length=100)
     porcentaje = models.DecimalField(max_digits=5, decimal_places=2)  # Discount percentage

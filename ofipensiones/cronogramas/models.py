@@ -3,17 +3,15 @@ from instituciones.models import Colegio, Estudiante  # Import models from insti
 
 
 class Cronograma(models.Model):
-    id = models.AutoField(primary_key=True)
     concepto = models.CharField(max_length=100)  # Name of the schedule (e.g., "Cronograma 6B-2024")
     descripcion = models.TextField(null=True, blank=True)  # Description of the schedule
     colegio = models.ForeignKey(Colegio, on_delete=models.CASCADE)  # The schedule belongs to a school
-    estudiantes = models.ManyToManyField(Estudiante, related_name='cronogramas', null=True, blank=True)  # Schedule is linked to students
+    estudiantes = models.ManyToManyField(Estudiante, related_name='cronogramas')  # Schedule is linked to students
 
     def __str__(self):
         return self.concepto
     
 class PlantillaCronograma(models.Model):
-    id = models.AutoField(primary_key=True)  # Auto-incrementing primary key
     nombre = models.CharField(max_length=100)  # Name of the template (e.g., "Tuition January 2024")
     descripcion = models.TextField(null=True, blank=True)  # Description of the template
     fecha_desde = models.DateTimeField()  # Start date for the charge

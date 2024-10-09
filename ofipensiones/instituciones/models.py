@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Colegio(models.Model):
-    nit = models.IntegerField(unique=True, primary_key=True)
+    nit = models.IntegerField() 
     nombre = models.CharField(max_length=100)
     direccion = models.CharField(max_length=100)
     telefono = models.IntegerField()
@@ -12,7 +12,7 @@ class Colegio(models.Model):
     
 class Grado(models.Model):
     colegio = models.ForeignKey(Colegio, on_delete=models.CASCADE)  # Each grade belongs to a school
-    codigo = models.CharField(unique=True, primary_key=True, max_length=50) # like 6B-2020
+    codigo = models.CharField(max_length=50) # like 6B-2020
     grado = models.CharField(max_length=50) 
     grupo = models.CharField(max_length=50)
     descripcion = models.TextField(null=True, blank=True)
@@ -22,7 +22,7 @@ class Grado(models.Model):
         return f"{self.grado} - {self.grupo}"
     
 class Estudiante(models.Model):
-    codigo = models.IntegerField(unique=True, primary_key=True)
+    codigo = models.IntegerField()
     colegio = models.ForeignKey(Colegio, on_delete=models.CASCADE)
     nombre = models.CharField(max_length=100)
     apellido = models.CharField(max_length=100)
@@ -33,7 +33,7 @@ class Estudiante(models.Model):
         return f"{self.nombre} {self.apellido}"
     
 class Acudiente(models.Model):
-    cedula = models.IntegerField(unique=True, primary_key=True)
+    cedula = models.IntegerField()
     nombre = models.CharField(max_length=100)
     apellido = models.CharField(max_length=100)
     telefono = models.CharField(max_length=20)
@@ -42,7 +42,7 @@ class Acudiente(models.Model):
         return f"{self.nombre} {self.apellido}"
     
 class Administrador(models.Model):
-    cedula = models.IntegerField(unique=True, primary_key=True)  
+    cedula = models.IntegerField()  
     colegio = models.ForeignKey(Colegio, on_delete=models.CASCADE)
     nombre = models.CharField(max_length=100)
     apellido = models.CharField(max_length=100)
