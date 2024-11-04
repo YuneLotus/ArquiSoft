@@ -78,8 +78,12 @@ WSGI_APPLICATION = 'ofipensiones.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': str(BASE_DIR / 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'ofipensiones_db',
+        'USER': 'ofipensiones_user',
+        'PASSWORD': 'isis2503',
+        'HOST': '34.172.173.143',
+        'PORT': '8080',
     }
 }
 
