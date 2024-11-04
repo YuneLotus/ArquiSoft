@@ -82,7 +82,7 @@ DATABASES = {
         'NAME': 'ofipensiones_db',
         'USER': 'ofipensiones_user',
         'PASSWORD': 'isis2503',
-        'HOST': '34.172.173.143',
+        'HOST': '10.128.0.52',
         'PORT': '8080',
     }
 }
