@@ -5,16 +5,17 @@ from instituciones.models import Estudiante, Acudiente, Colegio  # Import Estudi
 from cronogramas.models import PlantillaCronograma  # Import PlantillaCronograma model from the cronogramas app
 
 # Orden (Order) Model
+# TEMPORALMENTE SE DESCONECTA ORDEN DE ESTUDIANTE Y DE PLANTILLA, PARA FACILITAR CASO 4 Y CONSULTAS DB
 class Orden(models.Model):
-    estudiante = models.ForeignKey(Estudiante, on_delete=models.CASCADE)  # Order is linked to a student
+    # estudiante = models.ForeignKey(Estudiante, on_delete=models.CASCADE)  # Order is linked to a student
     fecha_creacion = models.DateTimeField(auto_now_add=True)  # Date the order was created
     fecha_vencimiento = models.DateTimeField()  # Due date for the payment
     total = models.DecimalField(max_digits=10, decimal_places=2)  # Total amount to be paid
     saldo_pendiente = models.DecimalField(max_digits=10, decimal_places=2, default=0)  # Outstanding balance
-    plantilla = models.ForeignKey(PlantillaCronograma, on_delete=models.SET_NULL, null=True, blank=True)  # Link to the template that created this order
+    # plantilla = models.ForeignKey(PlantillaCronograma, on_delete=models.SET_NULL, null=True, blank=True)  # Link to the template that created this order
 
     def __str__(self):
-        return f"Orden {self.id} - {self.estudiante.nombre}"
+        return f"Orden {self.id} - {self.fecha_vencimiento}"
 
 
 # Factura (Invoice) Model
