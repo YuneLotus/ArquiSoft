@@ -10,13 +10,13 @@ services:
           - /logs
         strip_path: false
 
-  - name: ordenes_service
-    host: ordenes_upstream
+  - name: filtrar_ordenes_service
+    host: filtrar_ordenes_upstream
     protocol: http
     routes:
-      - name: ordenes
+      - name: filtrar_ordenes
         paths:
-          - /ordenes
+          - /filtrar_ordenes
         strip_path: false
     
 upstreams:
@@ -25,7 +25,7 @@ upstreams:
       - target: 10.128.0.84:8080
         weight: 100
 
-  - name: ordenes_upstream
+  - name: filtrar_ordenes_upstream
     targets:
       - target: 10.128.0.85:8080
         weight: 100
