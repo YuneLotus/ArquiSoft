@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from .forms import MetodoPagoForm
 from .logic.metodos_pago_logic import get_metodos_pago, create_metodo_pago
+from .logic.ordenes_logic import get_ordenes
 from .models import Orden
 from django.utils.dateparse import parse_datetime
 from django.utils import timezone
@@ -13,6 +14,13 @@ def metodos_pago_list(request):
     metodosPago = get_metodos_pago()  # Obtiene la lista de colegios
     response_data = {
         'metodos_pago_list': metodosPago
+    }
+    return JsonResponse(response_data)
+
+def ordenes_list(request):
+    ordenes = get_ordenes()  # Obtiene la lista de ordenes
+    response_data = {
+        'ordenes_list': ordenes
     }
     return JsonResponse(response_data)
 
