@@ -1,13 +1,13 @@
 _format_version: "2.1"
 
 services:
-  - name: logs_service
-    host: logs_upstream
+  - name: ordenes_service
+    host: ordenes_upstream
     protocol: http
     routes:
-      - name: logs
+      - name: ordenes
         paths:
-          - /logs
+          - /ordenes
         strip_path: false
 
   - name: filtrar_ordenes_service
@@ -20,7 +20,7 @@ services:
         strip_path: false
     
 upstreams:
-  - name: logs_upstream
+  - name: ordenes_upstream
     targets:
       - target: 10.128.0.84:8080
         weight: 100

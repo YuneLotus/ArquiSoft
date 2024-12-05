@@ -93,11 +93,11 @@ resources:
           sudo git clone https://github.com/Almanza33/ArquiSoft.git
           cd ArquiSoft
           sudo git checkout final
-#          docker network create kong-net
-#          docker run -d --name kong --network=kong-net --restart=always \
-#          -v "$(pwd):/kong/declarative/" -e "KONG_DATABASE=off" \
-#          -e "KONG_DECLARATIVE_CONFIG=/kong/declarative/kong.yaml" \
-#          -p 8000:8000 kong/kong-gateway
+          docker network create kong-net
+          docker run -d --name kong --network=kong-net --restart=always \
+          -v "$(pwd):/kong/declarative/" -e "KONG_DATABASE=off" \
+          -e "KONG_DECLARATIVE_CONFIG=/kong/declarative/kong.yaml" \
+          -p 8000:8000 kong/kong-gateway
 
 # Database instances
 - name: logs-db
