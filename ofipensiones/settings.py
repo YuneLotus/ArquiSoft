@@ -76,25 +76,26 @@ WSGI_APPLICATION = 'ofipensiones.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 """
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ofipensiones_db',
-        'USER': 'ofipensiones_user',
+        'NAME': 'ordenes_db',
+        'USER': 'ordenes_user',
         'PASSWORD': 'isis2503',
-        'HOST': '10.128.0.52',
+        'HOST': '10.128.0.83',
         'PORT': '5432',
     }
 }
-"""
+
 
 # Password validation   
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators

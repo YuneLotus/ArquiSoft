@@ -168,7 +168,7 @@ resources:
       boot: true
       autoDelete: true
       initializeParams:
-        sourceImage: https://www.googleapis.com/compute/v1/projects/cos-cloud/global/images/cos-101-17162-463-8
+        sourceImage: https://www.googleapis.com/compute/v1/projects/ubuntu-os-cloud/global/images/ubuntu-2004-focal-v20240307b
     networkInterfaces:
     - network: https://www.googleapis.com/compute/v1/projects/entrega4final/global/networks/default
       networkIP: 10.128.0.84
@@ -193,7 +193,7 @@ resources:
           sudo pip3 install -r requirements.txt
 
 
-- name: a-ordenes-ms
+- name: ordenes-a-ms
   type: compute.v1.instance
   properties:
     zone: us-central1-a
@@ -228,7 +228,7 @@ resources:
           sudo git checkout final
           sudo pip3 install -r requirements.txt
 
-- name: b-ordenes-ms
+- name: ordenes-b-ms
   type: compute.v1.instance
   properties:
     zone: us-central1-a
